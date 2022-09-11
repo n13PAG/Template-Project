@@ -8,10 +8,10 @@ namespace PAG
     {
         [Header("Audio Cue Data")]
         [SerializeField] private AudioCueSO _audioCue;
-        [SerializeField] private bool _playOnStart;
+        [SerializeField] private bool _playOnStart = false;
 
         [Header("Audio Channel")]
-        [SerializeField] private AudioEventChannel _audioChannel;
+        [SerializeField] private AudioEventChannel _audioEventChannel;
 
         private void Start()
         {
@@ -24,7 +24,6 @@ namespace PAG
         private void OnDisable()
         {
             _playOnStart = false;
-            //StopAudioCue();
         }
         private IEnumerator PlayDelayed()
         {
@@ -33,8 +32,26 @@ namespace PAG
 
             //This additional check prevents the AudioCue from playing if the object is disabled or the scene unloaded
             //This prevents playing a looping AudioCue which then would be never stopped
-            //if (_playOnStart)
-                //PlayAudioCue();
+            if (_playOnStart)
+                PlayAudioCue();
+        }
+
+        [ContextMenu("Play Audio Cue")]
+        public void PlayAudioCue()
+        {
+            _audioEventChannel.RaisePlayEvent(_audioCue, this);
+        }
+
+        [ContextMenu("Stop Audio Cue")]
+        public void StopAudioCue()
+        {
+            _audioEventChannel.RaiseStopEvent(_audioCue);
+        }
+
+        [ContextMenu("Pause Audio Cue")]
+        public void PauseAudioCue()
+        {
+            _audioEventChannel.RaisePauseEvent();
         }
     }
 }
