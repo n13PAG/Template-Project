@@ -8,6 +8,6 @@ namespace PAG
     public interface IInputProvider 
     {
         public event Action onGenericAction;
-        public InputProvider.InputState GetState();
+        public InputProviderSO.InputState GetState();
     }
 }

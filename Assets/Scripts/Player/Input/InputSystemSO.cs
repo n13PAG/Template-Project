@@ -7,13 +7,13 @@ using UnityEngine.InputSystem;
 namespace PAG
 {
     [CreateAssetMenu(fileName ="InputSystem", menuName ="Input/Handlers/InputSystem")]
-    public class InputSystem : BaseInputHandler
+    public class InputSystemSO : BaseInputHandlerSO
     {
         PlayerInputActions playerInputActions;
 
         // Instance of input state
         // Input cached here until input provider get state call
-        private InputProvider.InputState _localInputState;
+        private InputProviderSO.InputState _localInputState;
 
 
         // Internal Input Events
@@ -63,7 +63,7 @@ namespace PAG
             
         }
 
-        public override InputProvider.InputState Process(InputProvider.InputState inputState)
+        public override InputProviderSO.InputState Process(InputProviderSO.InputState inputState)
         {
             if (shouldProcess)
             {

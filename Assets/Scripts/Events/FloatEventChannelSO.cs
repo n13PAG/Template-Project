@@ -6,7 +6,7 @@ using UnityEngine.Events;
 namespace PAG
 {
     [CreateAssetMenu(fileName = "FloatEventChannel", menuName = "Events/Float Event Channel")]
-    public class FloatEventChannelSO : MonoBehaviour
+    public class FloatEventChannelSO : ScriptableObject
     {
         public UnityAction<float> OnEventRaised;
 

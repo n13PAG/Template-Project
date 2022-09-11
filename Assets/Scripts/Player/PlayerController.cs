@@ -8,7 +8,7 @@ namespace PAG
     public class PlayerController : MonoBehaviour
     {
         [Header("Input Provider")]
-        [SerializeField] private InputProvider _inputProvider;
+        [SerializeField] private InputProviderSO _inputProvider;
 
         [Header("Test")]
         [SerializeField] Rigidbody2D rb2D;

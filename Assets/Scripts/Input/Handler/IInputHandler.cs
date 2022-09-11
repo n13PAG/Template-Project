@@ -8,6 +8,6 @@ namespace PAG
     {
         public void ToggleProcess(bool shouldProcess);
         public IInputHandler SetNext(IInputHandler next, bool shouldProcess);
-        public abstract InputProvider.InputState Process(InputProvider.InputState inputState);
+        public abstract InputProviderSO.InputState Process(InputProviderSO.InputState inputState);
     }
 }

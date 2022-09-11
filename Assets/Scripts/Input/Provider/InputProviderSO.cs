@@ -6,10 +6,10 @@ using UnityEngine;
 namespace PAG
 {
     [CreateAssetMenu(fileName ="InputProvider", menuName ="Input/InputProvider")]
-    public class InputProvider : ScriptableObject, IInputProvider
+    public class InputProviderSO : ScriptableObject, IInputProvider
     {
         [Header("Input Handlers")]
-        [SerializeField] private List<BaseInputHandler> inputHandlers = new List<BaseInputHandler>();
+        [SerializeField] private List<BaseInputHandlerSO> inputHandlers = new List<BaseInputHandlerSO>();
 
         public event Action onGenericAction;
         public void OnGenericAction()

@@ -4,13 +4,13 @@ using UnityEngine;
 
 namespace PAG
 {
-    public abstract class BaseInputHandler : ScriptableObject, IInputHandler
+    public abstract class BaseInputHandlerSO : ScriptableObject, IInputHandler
     {
         protected IInputHandler nextHandler;
         public IInputHandler GetNextHandler() { return nextHandler; }
 
         [Header("Input Provider")]
-        [SerializeField] protected InputProvider _inputProvider;
+        [SerializeField] protected InputProviderSO _inputProvider;
 
         [Header("Processing Permission")]
         // Handler processing permission
@@ -26,7 +26,7 @@ namespace PAG
             return next;
         }
 
-        public virtual InputProvider.InputState Process(InputProvider.InputState inputState)
+        public virtual InputProviderSO.InputState Process(InputProviderSO.InputState inputState)
         {
             if (nextHandler != null)
             {
